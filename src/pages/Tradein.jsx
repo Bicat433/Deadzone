@@ -13,7 +13,7 @@ const steps = [
   {
     number: '02',
     title: 'Receive Your Kit',
-    description: 'In exchange, you receive a DEAD ZONE Survival Kit — everything you need to navigate, capture memories, and stay connected the analog way.',
+    description: 'In exchange, you receive a DEAD ZONE Survival Kit - everything you need to navigate, capture memories, and stay connected the analog way.',
   },
   {
     number: '03',

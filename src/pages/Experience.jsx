@@ -7,19 +7,19 @@ const experiences = [
   {
     icon: Gamepad2,
     title: 'The Arcade',
-    description: 'Rows of vintage arcade machines, pinball tables, and competitive gaming — the way it was meant to be. Shoulder to shoulder, not screen to screen.',
+    description: 'Rows of vintage arcade machines, pinball tables, and competitive gaming - the way it was meant to be. Shoulder to shoulder, not screen to screen.',
     color: 'green',
   },
   {
     icon: Target,
     title: 'Bowling Alley',
-    description: 'Neon-lit lanes, cold drinks, and the satisfying crash of pins. No scoreboards on your phone — we do it old school.',
+    description: 'Neon-lit lanes, cold drinks, and the satisfying crash of pins. No scoreboards on your phone - we do it old school.',
     color: 'cyan',
   },
   {
     icon: Paintbrush,
     title: 'Graffiti Wall',
-    description: 'A living canvas that evolves every night. Grab a can and leave your mark. No filters, no uploads — just pure expression.',
+    description: 'A living canvas that evolves every night. Grab a can and leave your mark. No filters, no uploads - just pure expression.',
     color: 'magenta',
   },
   {
