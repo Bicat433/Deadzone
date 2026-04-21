@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 92%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 92%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 92%;
+    --primary: 145 100% 50%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 192 100% 50%;
+    --secondary-foreground: 0 0% 3%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 330 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 145 100% 50%;
+    --chart-1: 145 100% 50%;
+    --chart-2: 192 100% 50%;
+    --chart-3: 330 100% 50%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.25rem;
+
+    --neon-green: #00FF41;
+    --neon-cyan: #00D4FF;
+    --neon-magenta: #FF0080;
+    --dark-bg: #050505;
+    --dark-surface: #0A0A0A;
+    --dark-elevated: #111111;
+
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 145 100% 50%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 145 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 92%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 92%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 92%;
+    --primary: 145 100% 50%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 192 100% 50%;
+    --secondary-foreground: 0 0% 3%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 330 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 145 100% 50%;
+    --chart-1: 145 100% 50%;
+    --chart-2: 192 100% 50%;
+    --chart-3: 330 100% 50%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 145 100% 50%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 145 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    cursor: default;
+  }
+}
+
+/* Scanline overlay */
+.scanlines::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.015) 2px,
+    rgba(0, 255, 65, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Glitch keyframes */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitchColor {
+  0% { text-shadow: 2px 0 #00FF41, -2px 0 #FF0080; }
+  25% { text-shadow: -2px 0 #00D4FF, 2px 0 #FF0080; }
+  50% { text-shadow: 2px 0 #FF0080, -2px 0 #00FF41; }
+  75% { text-shadow: -2px 0 #00FF41, 2px 0 #00D4FF; }
+  100% { text-shadow: 2px 0 #00FF41, -2px 0 #FF0080; }
+}
+
+@keyframes glitchClip {
+  0% { clip-path: inset(40% 0 61% 0); }
+  10% { clip-path: inset(92% 0 1% 0); }
+  20% { clip-path: inset(43% 0 1% 0); }
+  30% { clip-path: inset(25% 0 58% 0); }
+  40% { clip-path: inset(54% 0 7% 0); }
+  50% { clip-path: inset(58% 0 43% 0); }
+  60% { clip-path: inset(70% 0 8% 0); }
+  70% { clip-path: inset(11% 0 69% 0); }
+  80% { clip-path: inset(30% 0 30% 0); }
+  90% { clip-path: inset(83% 0 5% 0); }
+  100% { clip-path: inset(40% 0 61% 0); }
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.33; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+  50% { box-shadow: 0 0 20px currentColor, 0 0 40px currentColor; }
+}
+
+@keyframes terminalBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes noise {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  20% { transform: translate(-10%, 5%); }
+  30% { transform: translate(5%, -10%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-10%, 5%); }
+  60% { transform: translate(15%, 0); }
+  70% { transform: translate(0, 10%); }
+  80% { transform: translate(-15%, 0); }
+  90% { transform: translate(10%, 5%); }
+  100% { transform: translate(5%, 0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes signalLost {
+  0% { opacity: 1; }
+  10% { opacity: 0; }
+  11% { opacity: 1; }
+  30% { opacity: 1; }
+  31% { opacity: 0.3; }
+  32% { opacity: 1; }
+  70% { opacity: 1; }
+  71% { opacity: 0; }
+  72% { opacity: 0.6; }
+  73% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* Noise texture background */
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  animation: noise 8s steps(10) infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #00FF41;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00D4FF;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 255, 65, 0.3);
+  color: #00FF41;
+}
